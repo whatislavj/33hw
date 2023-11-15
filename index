@@ -1,0 +1,110 @@
+// task1
+function eliminaDuplicate(array) {
+    let rezultat = [];
+    let map = {};
+
+    for (let i = 0; i < array.length; i++) {
+        let element = array[i];
+        if (!map[element]) {
+            rezultat.push(element);
+            map[element] = true;
+        }
+    }
+
+    return rezultat;
+}
+
+let inputArray = [1, 2, 3, 1, 5, 4];
+let outputArray = eliminaDuplicate(inputArray);
+console.log(outputArray);
+
+// task2
+function verificaPozitieImpara(lista, valoare) {
+    for (let i = 0; i < lista.length; i += 2) {
+        if (lista[i] === valoare) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+let listaExemplu = ['str', 'str1', 'str2', 'str3', 'str4', 'str5'];
+
+console.log(verificaPozitieImpara(listaExemplu, 'str1'));
+console.log(verificaPozitieImpara(listaExemplu, 'str2'));
+
+// task3
+function verificaInListaDupaPrimeleTrei(lista, valoare) {
+    for (let i = 3; i < lista.length; i++) {
+        if (lista[i] === valoare) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+console.log(verificaInListaDupaPrimeleTrei(listaExemplu, 'str1'));
+console.log(verificaInListaDupaPrimeleTrei(listaExemplu, 'str4'));
+
+// task4
+function eliminaObiect(listaObiecte, obiectDeEliminat) {
+    return listaObiecte.filter(obj => !suntEgale(obj, obiectDeEliminat));
+  }
+  
+  function suntEgale(obj1, obj2) {
+    return JSON.stringify(obj1) === JSON.stringify(obj2);
+  }
+  
+  let listaExemplu1 = [
+    { name: 'Boris', age: 30 },
+    { name: 'Alex', age: 32 },
+    { name: 'Vasile', age: 31 }
+  ];
+  
+  let obiectDeEliminat = { name: 'Vasile', age: 31 };
+  
+  let listaFaraObiect = eliminaObiect(listaExemplu1, obiectDeEliminat);
+  console.log(listaFaraObiect);
+
+
+// task5
+function afisarePatrat(dimensiune) {
+    for (let i = 0; i < dimensiune; i++) {
+        let linie = '';
+        for (let j = 0; j < dimensiune; j++) {
+            linie += '*';
+        }
+        console.log(linie);
+    }
+}
+
+let dimensiunePatrat = 4;
+afisarePatrat(dimensiunePatrat);
+
+// task6
+function cifreIdentice(lista) {
+    for (let i = 1; i < lista.length; i++) {
+        if (lista[i] !== lista[0]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function cifreIdentice(lista) {
+    for (let i = 1; i < lista.length; i++) {
+        if (lista[i] !== lista[0]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+let lista1 = [1, 1, 1, 1, 1];
+console.log(cifreIdentice(lista1));
+
+let lista2 = [1, 1, 2, 1, 1];
+console.log(cifreIdentice(lista2));
+
